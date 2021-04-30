@@ -2,7 +2,7 @@
 
 > 一系列纯 javascript 工具集
 
-[![npm](https://img.shields.io/npm/v/@leohsun/tools/utils.svg?style=flat-square)](https://www.npmjs.com/package/@leohsun/tools)
+[![npm](https://img.shields.io/npm/v/@leohsun/tools.svg?style=flat-square)](https://www.npmjs.com/package/@leohsun/tools)
 [![npm](https://img.shields.io/npm/dt/@leohsun/tools.svg?style=flat-square)](https://www.npmjs.com/package/@leohsun/tools)
 
 ## 安装
