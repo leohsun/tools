@@ -2,17 +2,22 @@ import resolve from "rollup-plugin-node-resolve"
 import babel from "@rollup/plugin-babel"
 import { uglify } from "rollup-plugin-uglify"
 import commonjs from "rollup-plugin-commonjs"
+import pkg from "./package.json"
 export default {
   input: "src/index.js",
   output: [
     {
-      file: "dist/bundle.iife.js",
-      format: "iife",
+      file: pkg.browser,
+      format: "umd",
       name: "leoTools",
     },
     {
-      file: "dist/bundle.esm.js",
+      file: pkg.module,
       format: "es",
+    },
+    {
+      file: pkg.main,
+      format: "cjs",
     },
   ],
   plugins: [

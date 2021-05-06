@@ -36,6 +36,8 @@ confirm({
 </head>
 ```
 
+- [demo](https://unpkg.com/@leohsun/tools@0.0.5/example/index.html)
+
 > 交互类工具集
 
 - [message](#message)
