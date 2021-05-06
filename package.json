@@ -1,18 +1,24 @@
 {
   "name": "@leohsun/tools",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "a sets of pure javascript utils",
-  "main": "dist/bundle.min.js",
+  "main": "dist/bundle.esm.js",
+  "browser": "dist/bundle.iife.js",
+  "module": "dist/bundle.esm.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/leohsun/tools.git"
   },
   "keywords": [
-    "javascript"
+    "javascript",
+    "selector",
+    "loader",
+    "confirm",
+    "modal"
   ],
   "scripts": {
     "bundle": "npx rollup --config rollup.config.js",
-    "publish": "npm run bundle && npm publish"
+    "prepublishOnly": "npm run bundle"
   },
   "author": "leohsun@live.cn",
   "license": "ISC",
@@ -26,6 +32,7 @@
     "@rollup/plugin-node-resolve": "^11.2.1",
     "rollup": "^2.46.0",
     "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-uglify": "^6.0.4"
   }

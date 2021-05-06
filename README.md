@@ -10,7 +10,20 @@
 - 按需引入
 
 ```shell
-npm install --save qrcode
+npm install --save @leohsun/tools
+```
+
+```javascript
+// index.js
+
+import { confirm } from "@leohsun/tools"
+
+confirm({
+  title: "預約失败",
+  content: data.message,
+  confirmText: "确定",
+  cancelText: null,
+})
 ```
 
 - HTML 直接引入
@@ -19,17 +32,32 @@ npm install --save qrcode
 <!-- index.html -->
 <head>
   ...
-  <script src="../dist/bundle.min.js"></script>
+  <script src="https://unpkg.com/@leohsun/tools"></script>
 </head>
 ```
 
-> 工具集
+> 交互类工具集
 
 - [message](#message)
 - [loader](#loader)
 - [modal](#modal)
 - [confirm](#confirm)
 - [selector](#confirm)
+
+> 纯函数类工具集
+
+- [getQueryStringObject](#getQueryStringObject)
+- [transfrom2Camel](#transfrom2Camel)
+- [getPlatform](#getPlatform)
+- [debounce](#debounce)
+- isArray
+- isUndefined
+- [isObject
+- isFunction
+- getArrayLast
+- [copy](#copy)
+- [generateNode](#generateNode)
+- [fixH5ViewHeightChangeWhenInputFocusOnAdroid](#fixH5ViewHeightChangeWhenInputFocusOnAdroid)
 
 ## message
 
@@ -38,7 +66,7 @@ npm install --save qrcode
 ```javascript
 // index.js
 
-LeoUtils.message("LeoUtils.message")
+leoTools.message("leoTools.message")
 ```
 
 ## loader
@@ -49,9 +77,9 @@ LeoUtils.message("LeoUtils.message")
 // index.js
 
 // 打开
-LeoUtils.loader.show()
+leoTools.loader.show()
 // 关闭
-LeoUtils.loader.hide()
+leoTools.loader.hide()
 ```
 
 ## Modal
@@ -74,12 +102,12 @@ Modal入参
 ```javascript
 // index.js
 
-const modalChildHtml = '<h1 style="text-aligin:center;">LeoUtils.Modal</h1>'
+const modalChildHtml = '<h1 style="text-aligin:center;">leoTools.Modal</h1>'
 
-const modalChildNode = LeoUtils.generateNode("moal-node")
+const modalChildNode = leoTools.generateNode("modal-node")
 
-const modal = new LeoUtils.Modal({
-  direction: LeoUtils.MODAL_DERECTION.BOTTOM,
+const modal = new leoTools.Modal({
+  direction: leoTools.MODAL_DERECTION.BOTTOM,
   childHTML: modalChildHtml,
   radius: "1em",
   onClose: function () {
@@ -113,7 +141,7 @@ confirm函数入参
 ```javascript
 // index.js
 
-LeoUtils.confirm({
+leoTools.confirm({
   title: "confirm",
   content: "your request has been refused",
   confirmText: "confirm",
@@ -144,7 +172,7 @@ confirm函数入参
 ```javascript
 // index.js
 
-  const selector = new LeoUtils.Selector({
+  const selector = new leoTools.Selector({
       dataList: [
         [{
           label: '董事长',
@@ -177,4 +205,73 @@ confirm函数入参
     })
     selector.show()
 })
+```
+
+## getQueryStringObject
+
+```javascript
+// window.location.href = "http://0.0.0.0/?a=4&b=5&c=6"
+
+// index.js
+getQueryStringObject() // --> {a: "4", b: "5", c: "6"}
+```
+
+## transfrom2Camel
+
+```javascript
+// index.js
+const a = "little_red_bird"
+transfrom2Camel(a) // --> littleRedBird
+```
+
+## getPlatform
+
+```javascript
+// index.js
+getPlatform() // --> {isIOS: false, isAndroid: true}
+```
+
+## debounce(function,delay)
+
+- 防抖动函数
+
+```javascript
+// index.js
+function log() {
+  console.log(document.body.scrollTop)
+}
+
+document.body.onscroll = debounce(log, 300)
+```
+
+## copy
+
+- 拷贝数组或对象
+
+```javascript
+// index.js
+const a = { a: 1, b: { b1: 2 } }
+const b = copy(a)
+b.b = 1
+
+console.log(a) // {"a":1,"b":{"b1":2}}
+console.log(b) // {a: 1, b: 1}
+```
+
+## generateNode
+
+- generateNode(className,tagName)
+
+```javascript
+// index.js
+const node = generateNode("modal", "ul")
+```
+
+## fixH5ViewHeightChangeWhenInputFocusOnAdroid
+
+- 修复 android 页面 input 获取焦点是，页面高度变小
+
+```javascript
+// index.js
+fixH5ViewHeightChangeWhenInputFocusOnAdroid()
 ```

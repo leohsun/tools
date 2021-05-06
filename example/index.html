@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>demo -- @leohsun/utils</title>
-  <script src="../dist/bundle.min.js"></script>
+  <script src="../dist/bundle.iife.js"></script>
 </head>
 
 <body>
@@ -20,20 +20,20 @@
 
 <script>
   function showMessage() {
-    LeoUtils.message('LeoUtils.message')
+    leoTools.message('leoTools.message')
   }
 
   function showLoader() {
-    LeoUtils.loader.show()
-    setTimeout(function () { LeoUtils.loader.hide() }, 3000)
+    leoTools.loader.show()
+    setTimeout(function () { leoTools.loader.hide() }, 3000)
   }
 
 
   function showModal() {
 
-    const modalChildHtml = '<h1 style="text-aligin:center;">LeoUtils.Modal</h1>'
+    const modalChildHtml = '<h1 style="text-aligin:center;">leoTools.Modal</h1>'
 
-    const modalChildNode = LeoUtils.generateNode('moal-node')
+    const modalChildNode = leoTools.generateNode('moal-node')
 
     // childHTML or childNode can only pass one
 
@@ -43,8 +43,8 @@
     //  RIGHT
     //  BOTTOM
     //  CENTER
-    const modal = new LeoUtils.Modal({
-      direction: LeoUtils.MODAL_DERECTION.BOTTOM,
+    const modal = new leoTools.Modal({
+      direction: leoTools.MODAL_DERECTION.BOTTOM,
       childHTML: modalChildHtml,
       radius: "1em",
       onClose: function () { console.log('modal is closed') },
@@ -58,7 +58,7 @@
   }
 
   function selector() {
-    const selector = new LeoUtils.Selector({
+    const selector = new leoTools.Selector({
       dataList: [
         [{
           label: '董事长',
@@ -93,7 +93,7 @@
   }
 
   function selectorLinkage() {
-    const selector = new LeoUtils.Selector({
+    const selector = new leoTools.Selector({
       dataList: [
         [{
           label: '颜色',
@@ -123,7 +123,7 @@
   }
 
   function confirm() {
-    LeoUtils.confirm({
+    leoTools.confirm({
       title: 'confirm',
       content: 'your request has been refused',
       confirmText: 'confirm',

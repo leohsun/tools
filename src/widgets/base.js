@@ -89,7 +89,6 @@ export function fixH5ViewHeightChangeWhenInputFocusOnAdroid() {
   if (isAndroid) {
     const originHeight =
       document.documentElement.clientHeight || document.body.clientHeight
-    console.log("originHeight", originHeight)
     document.documentElement.style.height = document.body.style.height =
       originHeight + "px"
   }
