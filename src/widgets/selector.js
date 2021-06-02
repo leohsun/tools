@@ -9,10 +9,14 @@ export class Selector {
     defaultValue,
     columnNumber,
     lineHeight,
+    confirmText = "确定",
+    cancelText = "取消",
     title = "",
   }) {
     this.dataList = dataList
     this.onChange = onChange
+    this.confirmText = confirmText
+    this.cancelText = cancelText
     this.defaultValue = defaultValue
     this.columnNumber = columnNumber
     this.lineHeight = lineHeight
@@ -23,6 +27,10 @@ export class Selector {
   dataList
 
   title
+
+  confirmText
+
+  cancelText
 
   slection
 
@@ -50,7 +58,7 @@ export class Selector {
   createHeaderDom() {
     const header = generateNode("leo-selector__header")
     const cancleNode = generateNode("leo-selector__button")
-    cancleNode.innerText = "取消"
+    cancleNode.innerText = this.cancelText
     cancleNode.onclick = this.handleCancle.bind(this)
     header.append(cancleNode)
 
@@ -61,7 +69,7 @@ export class Selector {
     const confirmNode = generateNode(
       "leo-selector__button leo-selector__button--confirm"
     )
-    confirmNode.innerText = "确定"
+    confirmNode.innerText = this.confirmText
     confirmNode.onclick = this.handleConfrim.bind(this)
     header.append(confirmNode)
     return header

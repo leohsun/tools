@@ -161,8 +161,8 @@ export function confirm({
 
   if (confirmText !== null)
     confirmInstance.confirmButton.onclick = function () {
+      onConfirm && onConfirm()
       modal.close().then(function () {
-        onConfirm && onConfirm()
         document.head.removeChild(confirmInstance.styleTag)
       })
     }

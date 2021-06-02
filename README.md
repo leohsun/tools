@@ -130,7 +130,7 @@ modal.show()
 - 确定框
 
 ```
-confirm函数入参
+函数入参
   title                标题                             [string: 'confirm']
   content              BODY内容                         [string: 'your request has been refused']
   confirmText          确定按钮文本                      [string: 'confirm']
@@ -162,13 +162,14 @@ leoTools.confirm({
 - 选择器
 
 ```
-confirm函数入参
+函数入参
   dataList            数据                       [arrary:[[label:'猫',value:'cat'],[label:'红',value:'red']]
   title              选择器标题                   [string: '职务选择']
+  confirmText          确定按钮文本                      [string: 'confirm']
+  cancelText           取消按钮文本                      [string: 'cancel']
   onChange          点击确定后的回调               [function]
   columnNumber      级联选择时的层级               [number]
   lineHeight        选择项行高                    [number]
-
 ```
 
 ```javascript
