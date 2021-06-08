@@ -7,7 +7,7 @@ export function getQueryStringObject() {
   return params
 }
 
-export function transfrom2Camel(str) {
+export function transform2Camel(str) {
   return str.replace(/_(.)/g, (m, $1) => $1.toUpperCase())
 }
 

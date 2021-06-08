@@ -36,7 +36,7 @@ confirm({
 </head>
 ```
 
-- [demo](https://unpkg.com/@leohsun/tools@0.0.5/example/index.html)
+- [在线示例 demo](https://unpkg.com/@leohsun/tools@0.0.7/example/index.html)
 
 > 交互类工具集
 
@@ -90,15 +90,15 @@ leoTools.loader.hide()
 
 ```
 Modal入参
-  direction             内容Body弹出方向                      [选择: LEFT,TOP,RIGHT,BOTTOM,CENTER]
-  childHTML             传入BODY的HTML(与childNode互斥)       [string:'<div>hello</div>']
-  childNde              传入BODY的HTML节点(与childHTML互斥)    [HTML-ELEMENT: document.createElement('div')]
-  layoutBackgroundColor BODY背景色                            [string: '#fff']
-  radius                BODY圆角大小                          [string: '20px']
-  duration              BODY动画时间间隔(单位：S)               [number: 0.4]
-  onClose               关闭模态框时回调                       [function]
-  closeWhenClickMask    是否在点击模态框遮罩层关闭               [boolean: false]
-  removeStyleTagWhenColse 是否在关闭模态框是移除其Style标签       [boolean: true]
+  direction               内容Body弹出方向                       [选择: LEFT,TOP,RIGHT,BOTTOM,CENTER]
+  childHTML               传入BODY的HTML(与childNode互斥)        [string:'<div>hello</div>']
+  childNde                传入BODY的HTML节点(与childHTML互斥)     [HTML-ELEMENT: document.createElement('div')]
+  layoutBackgroundColor   BODY背景色                            [string: '#fff']
+  radius                  BODY圆角大小                           [string: '20px']
+  duration                BODY动画时间间隔(单位：S)               [number: 0.4]
+  onClose                 关闭模态框时回调                        [function]
+  closeWhenClickMask      是否在点击模态框遮罩层关闭                [boolean: false]
+  removeStyleTagWhenColse 是否在关闭模态框是移除其Style标签         [boolean: true]
 ```
 
 ```javascript
@@ -163,50 +163,50 @@ leoTools.confirm({
 
 ```
 函数入参
-  dataList            数据                       [arrary:[[label:'猫',value:'cat'],[label:'红',value:'red']]
-  title              选择器标题                   [string: '职务选择']
-  confirmText          确定按钮文本                      [string: 'confirm']
-  cancelText           取消按钮文本                      [string: 'cancel']
-  onChange          点击确定后的回调               [function]
-  columnNumber      级联选择时的层级               [number]
-  lineHeight        选择项行高                    [number]
+  dataList           数据                         [arrary:[[label:'猫',value:'cat'],[label:'红',value:'red']]
+  title              选择器标题                    [string: '职务选择']
+  confirmText        确定按钮文本                  [string: '确认']
+  cancelText         取消按钮文本                  [string: '取消']
+  onChange           点击确定后的回调               [function]
+  columnNumber       级联选择时的层级               [number]
+  lineHeight         选择项行高                    [number]
 ```
 
 ```javascript
 // index.js
 
-  const selector = new leoTools.Selector({
-      dataList: [
-        [{
-          label: '董事长',
-          value: 'ceo'
-        },
-        {
-          label: '技术负责人',
-          value: 'cto'
-        }],
-        [{
-          label: '王小明',
-          value: 'xiaoming-Wang'
-        }, {
-          label: '李四',
-          value: 'si-Li'
-        }]
-      ],
-      title: "职务选择",
-      defaultValue: [{
+const selector = new leoTools.Selector({
+    dataList: [
+      [{
+        label: '董事长',
+        value: 'ceo'
+      },
+      {
         label: '技术负责人',
         value: 'cto'
+      }],
+      [{
+        label: '王小明',
+        value: 'xiaoming-Wang'
       }, {
         label: '李四',
         value: 'si-Li'
-      }],
-      onChange: data => {
-        if (!data) return
-        console.log(data)
-      },
-    })
-    selector.show()
+      }]
+    ],
+    title: "职务选择",
+    defaultValue: [{
+      label: '技术负责人',
+      value: 'cto'
+    }, {
+      label: '李四',
+      value: 'si-Li'
+    }],
+    onChange: data => {
+      if (!data) return
+      console.log(data)
+    },
+  })
+  selector.show()
 })
 ```
 
@@ -219,12 +219,12 @@ leoTools.confirm({
 getQueryStringObject() // --> {a: "4", b: "5", c: "6"}
 ```
 
-## transfrom2Camel
+## transform2Camel
 
 ```javascript
 // index.js
 const a = "little_red_bird"
-transfrom2Camel(a) // --> littleRedBird
+transform2Camel(a) // --> littleRedBird
 ```
 
 ## getPlatform
@@ -272,7 +272,7 @@ const node = generateNode("modal", "ul")
 
 ## fixH5ViewHeightChangeWhenInputFocusOnAdroid
 
-- 修复 android 页面 input 获取焦点是，页面高度变小
+- 修复 android 页面 input 获取焦点时，页面高度变小
 
 ```javascript
 // index.js
