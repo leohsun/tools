@@ -1,4 +1,4 @@
-import { copy, isUndefined, isFunction } from "./base"
+import { copy, isUndefined, isFunction, findIndex, find } from "./base"
 class Column {
   constructor({ dataList, defaultValue, onChange, freeze, lineHeight = 45 }) {
     this.freeze = freeze || false
@@ -86,7 +86,6 @@ class Column {
   getElementTransformData(target) {
     const style = getComputedStyle(target)
     const transform = style.transform
-    console.log(transform)
     let x = 0
     let y = 0
     if ('DOMMatrix' in window) {
@@ -274,11 +273,12 @@ class Column {
   }
 
   acitveDefaultCell() {
-    const activeCellIdx = this.dataList.findIndex(
-      pData =>
-        pData.value == this.defaultValue.value &&
+
+    const activeCellIdx = findIndex(this.dataList, pData => {
+      pData.value == this.defaultValue.value &&
         pData.label == this.defaultValue.label
-    )
+    })
+
 
     if (activeCellIdx == -1) return
     this.colContent.style.transform = `translate3d(0,${this.height * activeCellIdx * -1
@@ -406,7 +406,6 @@ export class Picker {
       yearToPush++
     }
 
-    console.log(yearList)
     this.dataList.push(yearList)
     this.defaultValue = this.activeValue[{ label: year, value: year }]
   }
@@ -431,16 +430,18 @@ export class Picker {
     this.dataList = [] // reset it
     this.dataList[0] = copy(this.linkageDataListBak[0])
 
-    let parent = this.linkageDataListBak[0].find(
+    let parent = find(this.linkageDataListBak[0],
       item =>
         item.label == this.activeValue[0].label &&
         item.value == this.activeValue[0].value
     )
 
+
+
     for (let i = 1; i < this.columnNumber; i++) {
       if (!parent || !parent.children) return this.dataList.push([])
       this.dataList.push(copy(parent.children))
-      parent = parent.children.find(
+      parent = find(parent.children,
         item =>
           item.label == this.activeValue[i].label &&
           item.value == this.activeValue[i].value

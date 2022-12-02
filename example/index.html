@@ -13,13 +13,13 @@
   <button onclick="javascript:showMessage();">message</button>
   <button onclick="javascript:showLoader();">showLoader</button>
   <button onclick="javascript:showModal();">modal</button>
-  <button onclick="javascript:selector();">selector</button>
+  <button onclick="javascript:window.selector();">selector</button>
   <button onclick="javascript:selectorLinkage();">linkage selector</button>
   <button onclick="javascript:confirm();">confirm</button>
 </body>
 
 <script>
-  function showMessage() {
+  window.showMessage = function () {
     leoTools.message('leoTools.message')
   }
 
@@ -29,11 +29,11 @@
   }
 
 
-  function showModal() {
+  window.showModal = function () {
 
-    const modalChildHtml = '<h1 style="text-aligin:center;">leoTools.Modal</h1>'
+    var modalChildHtml = '<h1 style="text-aligin:center;">leoTools.Modal</h1>'
 
-    const modalChildNode = leoTools.generateNode('moal-node')
+    var modalChildNode = leoTools.generateNode('moal-node')
 
     // childHTML or childNode can only pass one
 
@@ -43,7 +43,7 @@
     //  RIGHT
     //  BOTTOM
     //  CENTER
-    const modal = new leoTools.Modal({
+    var modal = new leoTools.Modal({
       direction: leoTools.MODAL_DERECTION.BOTTOM,
       childHTML: modalChildHtml,
       radius: "1em",
@@ -57,8 +57,8 @@
     modal.show()
   }
 
-  function selector() {
-    const selector = new leoTools.Selector({
+  window.selector = function () {
+    var selector = new leoTools.Selector({
       dataList: [
         [{
           label: '董事长',
@@ -84,7 +84,7 @@
         label: '李四',
         value: 'si-Li'
       }],
-      onChange: data => {
+      onChange: function (data) {
         if (!data) return
         console.log(data)
       },
@@ -92,8 +92,8 @@
     selector.show()
   }
 
-  function selectorLinkage() {
-    const selector = new leoTools.Selector({
+  window.selectorLinkage = function () {
+    var selector = new leoTools.Selector({
       dataList: [
         [{
           label: '颜色',
@@ -114,7 +114,7 @@
       ],
       title: "职务选择",
       columnNumber: 2, // this property is required
-      onChange: data => {
+      onChange: function (data) {
         if (!data) return
         console.log(data)
       },
@@ -122,7 +122,7 @@
     selector.show()
   }
 
-  function confirm() {
+  window.confirm = function () {
     leoTools.confirm({
       title: 'confirm',
       content: 'your request has been refused',

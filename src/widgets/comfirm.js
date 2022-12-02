@@ -153,7 +153,7 @@ export function confirm({
   if (cancelText !== null) {
     confirmInstance.cancelButton.onclick = function () {
       onCancel && onCancel()
-      modal.close().then(function () {
+      modal.close(function () {
         document.head.removeChild(confirmInstance.styleTag)
       })
     }
@@ -162,7 +162,7 @@ export function confirm({
   if (confirmText !== null)
     confirmInstance.confirmButton.onclick = function () {
       onConfirm && onConfirm()
-      modal.close().then(function () {
+      modal.close(function () {
         document.head.removeChild(confirmInstance.styleTag)
       })
     }

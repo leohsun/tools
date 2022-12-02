@@ -151,17 +151,15 @@ export class Modal {
     })
   }
 
-  close() {
-    return new Promise((resolve, reject) => {
-      this.dom.classList.remove("modal--show")
-      setTimeout(() => {
-        document.body.removeChild(this.dom)
-        if (this.removeStyleTagWhenColse)
-          document.head.removeChild(this.styleTag)
-        this.onClose && this.onClose()
-        resolve()
-      }, this.duration * 1000)
-    })
+  close(callback) {
+    this.dom.classList.remove("modal--show")
+    setTimeout(() => {
+      document.body.removeChild(this.dom)
+      if (this.removeStyleTagWhenColse)
+        document.head.removeChild(this.styleTag)
+      this.onClose && this.onClose()
+      callback && callback()
+    }, this.duration * 1000)
   }
 
   _handleMaskClick() {

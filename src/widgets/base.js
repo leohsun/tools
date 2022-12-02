@@ -99,3 +99,24 @@ export function generateNode(className, tag = "div") {
   if (!isUndefined(className)) node.className = className
   return node
 }
+
+
+export function findIndex(array, callback) {
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index]
+    if (callback.call(this, element)) {
+      return index
+    }
+  }
+  return -1
+}
+
+export function find(array, callback) {
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index]
+    if (callback.call(this, element)) {
+      return element
+    }
+  }
+  return null
+}
