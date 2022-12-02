@@ -1,7 +1,7 @@
-import resolve from "rollup-plugin-node-resolve"
+import resolve from '@rollup/plugin-node-resolve'
 import babel from "@rollup/plugin-babel"
-import { uglify } from "rollup-plugin-uglify"
-import commonjs from "rollup-plugin-commonjs"
+import terser from '@rollup/plugin-terser'
+import commonjs from '@rollup/plugin-commonjs'
 import pkg from "./package.json"
 export default {
   input: "src/index.js",
@@ -21,12 +21,15 @@ export default {
     },
   ],
   plugins: [
+    commonjs({
+      strictRequires: false
+    }),
     resolve(),
-    commonjs(),
+
     babel({
       babelHelpers: "bundled",
       exclude: "node_modules/**",
     }),
-    uglify(),
+    terser(),
   ],
 }

@@ -73,7 +73,7 @@ class Loader {
   createDom() {
     if (document.querySelector(".loader")) return
     this.styleDom = document.createElement("style")
-    this.styleDom.innerText = this.style
+    this.styleDom.innerHTML = this.style
     document.head.appendChild(this.styleDom)
     this.loaderDom = document.createElement("div")
     this.loaderDom.className = "loader"

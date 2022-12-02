@@ -85,8 +85,20 @@ class Column {
 
   getElementTransformData(target) {
     const style = getComputedStyle(target)
-    const y = new WebKitCSSMatrix(style.transform).m42
-    const x = new WebKitCSSMatrix(style.transform).m41
+    const transform = style.transform
+    console.log(transform)
+    let x = 0
+    let y = 0
+    if ('DOMMatrix' in window) {
+      const translate = new DOMMatrix(transform)
+      y = translate.m42
+      x = translate.m41
+    } else if (transform.indexOf('matrix3d') > -1) {
+      const dataArrary = transform.split(',')
+      x = +dataArrary[12]
+      y = +dataArrary[13]
+    }
+
     return {
       x,
       y,
@@ -269,9 +281,8 @@ class Column {
     )
 
     if (activeCellIdx == -1) return
-    this.colContent.style.transform = `translate3d(0,${
-      this.height * activeCellIdx * -1
-    }px,0)`
+    this.colContent.style.transform = `translate3d(0,${this.height * activeCellIdx * -1
+      }px,0)`
 
     this.activeCellDom = this.colContent.children[activeCellIdx]
     this.activeCellDom.classList.add("leo-picker__cell--active")
@@ -506,7 +517,7 @@ export class Picker {
 
     const styleTag = this.generateNode("leo-picker", "style")
     styleTag.innerHTML = styleHtml
-    document.head.append(styleTag)
+    document.head.appendChild(styleTag)
   }
 
   onColumnChange(idx, data) {

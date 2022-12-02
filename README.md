@@ -1,6 +1,6 @@
 # @leohsun/tools
 
-> 一系列纯 javascript 工具集
+> 一系列纯 javascript 工具集,支持IE10+
 
 [![npm](https://img.shields.io/npm/v/@leohsun/tools.svg?style=flat-square)](https://www.npmjs.com/package/@leohsun/tools)
 [![npm](https://img.shields.io/npm/dt/@leohsun/tools.svg?style=flat-square)](https://www.npmjs.com/package/@leohsun/tools)
@@ -36,7 +36,7 @@ confirm({
 </head>
 ```
 
-- [在线示例 demo](https://unpkg.com/@leohsun/tools@0.0.7/example/index.html)
+- [在线示例 demo](https://unpkg.com/@leohsun/tools@0.1.0/example/index.html)
 
 > 交互类工具集
 

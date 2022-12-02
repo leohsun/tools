@@ -60,7 +60,7 @@ export class Selector {
     const cancleNode = generateNode("leo-selector__button")
     cancleNode.innerText = this.cancelText
     cancleNode.onclick = this.handleCancle.bind(this)
-    header.append(cancleNode)
+    header.appendChild(cancleNode)
 
     const titleNode = generateNode("leo-selector__title")
     titleNode.innerText = this.title
@@ -71,7 +71,7 @@ export class Selector {
     )
     confirmNode.innerText = this.confirmText
     confirmNode.onclick = this.handleConfrim.bind(this)
-    header.append(confirmNode)
+    header.appendChild(confirmNode)
     return header
   }
 
