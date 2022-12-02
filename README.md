@@ -36,7 +36,7 @@ confirm({
 </head>
 ```
 
-- [在线示例 demo](https://unpkg.com/@leohsun/tools@0.1.0/example/index.html)
+- [在线示例 demo](https://unpkg.com/@leohsun/tools@0.1.1/example/index.html)
 
 > 交互类工具集
 

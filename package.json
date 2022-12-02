@@ -1,6 +1,6 @@
 {
   "name": "@leohsun/tools",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a sets of pure javascript utils",
   "main": "dist/bundle.cjs.js",
   "browser": "dist/bundle.umd.js",
